@@ -3,6 +3,13 @@ const express = require('express')
 
 const app = express()
 
+app.use((req,res,next) =>{
+    console.log("Time: ", new Date().toLocaleString())
+    console.log("Metodo: ", req.method)
+    console.log("Rota: ", req.url)
+    next()
+})
+
 app.get('/hello',(req,res,next) => {
     res.send('Hello World Atualizado')
 })
